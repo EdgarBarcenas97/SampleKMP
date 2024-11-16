@@ -14,7 +14,7 @@ import org.jetbrains.compose.resources.stringResource
 @OptIn(ExperimentalMaterial3Api::class)
 fun TopBar(
     title: StringResource? = null,
-    icon: ImageVector,
+    icon: ImageVector? = null,
     onBackClick: () -> Unit
 ) {
     CenterAlignedTopAppBar(
@@ -23,8 +23,10 @@ fun TopBar(
                 Text(text = stringResource(title))
         },
         navigationIcon = {
-            IconButton(onClick = onBackClick) {
-                Icon(imageVector = icon, contentDescription = null)
+            if (icon != null) {
+                IconButton(onClick = onBackClick) {
+                    Icon(imageVector = icon, contentDescription = null)
+                }
             }
         }
     )
