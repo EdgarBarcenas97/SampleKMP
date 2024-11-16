@@ -12,7 +12,7 @@ import samplekmp.composeapp.generated.resources.montserrat_regular
 
 
 @Composable
-internal fun TemisTheme(
+internal fun SampleTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = lightColorPalette
