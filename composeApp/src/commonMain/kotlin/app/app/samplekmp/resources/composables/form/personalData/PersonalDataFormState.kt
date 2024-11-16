@@ -5,10 +5,10 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import app.app.samplekmp.resources.composables.TextFieldState
+import app.app.samplekmp.resources.composables.textfield.TextFieldState
 import app.app.samplekmp.resources.composables.form.email.EmailFieldState
 import app.app.samplekmp.resources.composables.form.email.rememberEmailFieldState
-import app.app.samplekmp.resources.composables.rememberTextFieldState
+import app.app.samplekmp.resources.composables.textfield.rememberTextFieldState
 
 @Stable
 class PersonalDataFormState(

@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.stringResource
-import app.app.samplekmp.resources.composables.TextField
+import app.app.samplekmp.resources.composables.textfield.TextField
 import app.app.samplekmp.resources.composables.form.email.EmailField
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.first_name

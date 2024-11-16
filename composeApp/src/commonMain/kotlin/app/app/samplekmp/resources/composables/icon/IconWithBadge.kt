@@ -1,4 +1,4 @@
-package app.app.samplekmp.resources.composables
+package app.app.samplekmp.resources.composables.icon
 
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox

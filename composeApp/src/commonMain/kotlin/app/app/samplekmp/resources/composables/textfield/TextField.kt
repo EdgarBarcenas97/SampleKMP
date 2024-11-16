@@ -1,4 +1,4 @@
-package app.app.samplekmp.resources.composables
+package app.app.samplekmp.resources.composables.textfield
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions

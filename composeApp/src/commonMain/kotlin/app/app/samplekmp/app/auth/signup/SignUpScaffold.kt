@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -15,7 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import app.app.samplekmp.resources.Space16
 import app.app.samplekmp.resources.Weight1
-import app.app.samplekmp.resources.composables.TopBar
+import app.app.samplekmp.resources.composables.topbar.TopBar
 import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import app.app.samplekmp.resources.composables.form.registration.RegistrationForm
 import app.app.samplekmp.resources.composables.form.registration.rememberRegistrationFormState
@@ -30,7 +32,12 @@ fun SignUpScaffold(
 ) {
     Scaffold(
         topBar = {
-            TopBar(onBackClick = onBackClick)
+            TopBar(
+                title = Res.string.register,
+                icon = Icons.Default.ArrowBack,
+                onBackClick = onBackClick
+
+            )
         }
     ) { padding ->
         Column(

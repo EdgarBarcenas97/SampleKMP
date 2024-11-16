@@ -11,17 +11,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Button
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import app.app.samplekmp.resources.composables.topbar.TopBar
 import org.jetbrains.compose.resources.stringResource
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.delete_account
@@ -45,7 +42,11 @@ fun DeleteAccountScaffold(
 ) {
     Scaffold(
         topBar = {
-            TopBar(onCloseClick = onCloseClick)
+            TopBar(
+                title = Res.string.delete_account,
+                icon = Icons.Default.Close,
+                onBackClick = onCloseClick
+            )
         }
     ) { padding ->
         Column(
@@ -87,20 +88,7 @@ fun DeleteAccountScaffold(
     }
 }
 
-@Composable
-@OptIn(ExperimentalMaterial3Api::class)
-private fun TopBar(onCloseClick: () -> Unit) {
-    CenterAlignedTopAppBar(
-        title = {
-            Text(text = stringResource(Res.string.delete_account))
-        },
-        navigationIcon = {
-            IconButton(onClick = onCloseClick) {
-                Icon(imageVector = Icons.Default.Close, contentDescription = null)
-            }
-        }
-    )
-}
+
 
 @Composable
 private fun StartDeletingButton(onClick: () -> Unit) {

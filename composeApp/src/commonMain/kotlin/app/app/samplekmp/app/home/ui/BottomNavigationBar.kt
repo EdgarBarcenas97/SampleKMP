@@ -17,7 +17,7 @@ import app.app.samplekmp.app.home.BottomNavRoutes
 import app.app.samplekmp.app.home.BottomNavigation
 import app.app.samplekmp.core.extensions.one
 import app.app.samplekmp.resources.RhealPrimary
-import app.app.samplekmp.resources.composables.IconWithBadge
+import app.app.samplekmp.resources.composables.icon.IconWithBadge
 import org.jetbrains.compose.resources.stringResource
 
 @Composable

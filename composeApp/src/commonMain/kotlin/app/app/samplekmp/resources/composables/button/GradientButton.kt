@@ -1,4 +1,4 @@
-package app.app.samplekmp.resources.composables
+package app.app.samplekmp.resources.composables.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height

@@ -1,4 +1,4 @@
-package app.app.samplekmp.resources.composables
+package app.app.samplekmp.resources.composables.icon
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
