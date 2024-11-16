@@ -16,12 +16,9 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -40,11 +37,11 @@ import app.app.samplekmp.resources.Space6
 import app.app.samplekmp.resources.Space600
 import app.app.samplekmp.resources.Space8
 import app.app.samplekmp.resources.Weight1
+import app.app.samplekmp.resources.composables.button.GradientButton
+import app.app.samplekmp.resources.composables.button.TextButtonCustom
 import coil3.compose.AsyncImage
-import org.jetbrains.compose.resources.stringResource
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.create_account
-import samplekmp.composeapp.generated.resources.forgot_password
 import samplekmp.composeapp.generated.resources.login
 
 @Composable
@@ -131,26 +128,18 @@ fun OnboardingScaffold(
         Column(
             verticalArrangement = Arrangement.spacedBy(Space2),
             modifier = Modifier
-                .align(Alignment.CenterHorizontally)
+                .fillMaxWidth()
                 .padding(horizontal = Space16)
-                .padding(bottom = Space16).widthIn(max = Space600)
+                .padding(bottom = Space16)
         ) {
-            Button(
-                onClick = onSignUpClick,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = stringResource(Res.string.create_account),
-                    modifier = Modifier.padding(vertical = Space8)
-                )
-            }
-            TextButton(
-                onClick = onSignInClick,
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.textButtonColors(contentColor = Color.White)
-            ) {
-                Text(text = stringResource(Res.string.login))
-            }
+            GradientButton(
+                title = Res.string.create_account,
+                onButtonPressed = onSignUpClick
+            )
+            TextButtonCustom(
+                onTextButtonClick = onSignInClick,
+                title = Res.string.login
+            )
         }
     }
 }

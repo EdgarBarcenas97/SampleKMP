@@ -3,25 +3,22 @@ package app.app.samplekmp.app.auth.signup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import app.app.samplekmp.resources.Space16
 import app.app.samplekmp.resources.Weight1
-import app.app.samplekmp.resources.composables.topbar.TopBar
+import app.app.samplekmp.resources.composables.button.GradientButton
 import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import app.app.samplekmp.resources.composables.form.registration.RegistrationForm
 import app.app.samplekmp.resources.composables.form.registration.rememberRegistrationFormState
-import org.jetbrains.compose.resources.stringResource
+import app.app.samplekmp.resources.composables.topbar.TopBar
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.register
 
@@ -36,18 +33,20 @@ fun SignUpScaffold(
                 title = Res.string.register,
                 icon = Icons.Default.ArrowBack,
                 onBackClick = onBackClick
-
             )
         }
-    ) { padding ->
+    ) { paddingValues ->
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(
+                    top = paddingValues.calculateTopPadding(),
+                    bottom = paddingValues.calculateBottomPadding(),
+                    start = Space16,
+                    end = Space16)
                 .verticalScroll(rememberScrollState())
         ) {
             val formState = rememberRegistrationFormState()
-
             LaunchedEffect(Unit) {
                 formState.personalData.run {
                     firstName.value = "John"
@@ -60,26 +59,23 @@ fun SignUpScaffold(
                     secondPassword.onValueChanged("StrongPassword123")
                 }
             }
-
             RegistrationForm(
                 state = formState,
-                modifier = Modifier.padding(Space16)
+                modifier = Modifier.padding(top = Space16)
             )
             Spacer(modifier = Modifier.weight(Weight1))
-            Button(
-                onClick = {
+            GradientButton(
+                title = Res.string.register,
+                enabledButton = formState.isValid,
+                modifier = Modifier
+                    .padding(bottom = Space16),
+                onButtonPressed = {
                     onRegisterClick(
                         formState.personalData.personalData,
                         formState.passwords.firstPassword.value
                     )
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(Space16),
-                enabled = formState.isValid,
-            ) {
-                Text(text = stringResource(Res.string.register))
-            }
+                }
+            )
         }
     }
 }

@@ -13,13 +13,14 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun TopBar(
-    title: StringResource,
+    title: StringResource? = null,
     icon: ImageVector,
     onBackClick: () -> Unit
 ) {
     CenterAlignedTopAppBar(
         title = {
-            Text(text = stringResource(title))
+            if (title != null)
+                Text(text = stringResource(title))
         },
         navigationIcon = {
             IconButton(onClick = onBackClick) {

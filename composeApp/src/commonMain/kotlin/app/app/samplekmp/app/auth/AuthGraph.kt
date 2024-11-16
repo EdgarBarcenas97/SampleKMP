@@ -30,19 +30,13 @@ fun NavGraphBuilder.authGraph(
     ) {
         composable<OnboardingScreenRoute> {
             OnboardingScreen(
-                onSignInClick = {
-                    rootController.navigate(SignInScreenRoute)
-                },
-                onSignUpClick = {
-                    rootController.navigate(SignUpScreenRoute)
-                }
+                onSignInClick = { rootController.navigate(SignInScreenRoute) },
+                onSignUpClick = { rootController.navigate(SignUpScreenRoute) }
             )
         }
         composable<SignInScreenRoute> {
             SignInScreen(
-                onBackClick = {
-                    rootController.popBackStack()
-                },
+                onBackClick = { rootController.popBackStack() },
                 onLoginClick = { email, password ->
                     rootController.navigate(HomeGraph) {
                         popUpTo(rootController.graph.id) {
@@ -58,9 +52,7 @@ fun NavGraphBuilder.authGraph(
         }
         composable<SignUpScreenRoute> {
             SignUpScreen(
-                onBackClick = {
-                    rootController.popBackStack()
-                },
+                onBackClick = { rootController.popBackStack() },
                 onRegisterClick = { email, password ->
                     rootController.navigate(HomeGraph) {
                         popUpTo(rootController.graph.id) {

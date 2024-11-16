@@ -1,6 +1,7 @@
 package app.app.samplekmp.resources.composables.button
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -23,7 +24,7 @@ import app.app.samplekmp.resources.Space40
 @Composable
 fun GradientButton(
     title: StringResource,
-    enabledButton: Boolean,
+    enabledButton: Boolean = true,
     onButtonPressed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -38,13 +39,14 @@ fun GradientButton(
         colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
         shape = MaterialTheme.shapes.extraLarge,
         modifier = modifier
+            .fillMaxWidth()
             .background(brush = buttonBrush, shape = MaterialTheme.shapes.extraLarge)
             .height(Space40)
     ) {
         Text(
             text = stringResource(title),
             style = MaterialTheme.typography.bodyLarge.copy(
-                fontWeight = FontWeight.SemiBold,
+                fontWeight = FontWeight.Normal,
                 color = if (enabledButton) Neutro00 else Neutro100
             )
         )
