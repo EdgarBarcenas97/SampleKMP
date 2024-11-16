@@ -26,8 +26,12 @@ fun NavGraphBuilder.profileGraph(
                     email = "john.doe@gmail.com",
                     phoneNumber = "+48 123 456 789",
                 ),
-                onBackClick = { },
-                onLogoutClick = { },
+                onBackClick = {
+                    rootController.popBackStack()
+                },
+                onLogoutClick = {
+
+                },
                 onDeleteAccountClick = {
                     rootController.navigate(DeleteAccountScreenRoute)
                 },
@@ -39,8 +43,12 @@ fun NavGraphBuilder.profileGraph(
 
         composable<DeleteAccountScreenRoute> {
             DeleteAccountScreen(
-                onCloseClick = { },
-                onStartDeletingClick = { }
+                onCloseClick = {
+                    rootController.popBackStack()
+                },
+                onStartDeletingClick = {
+
+                }
             )
         }
     }
