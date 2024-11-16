@@ -23,4 +23,5 @@
     <string name="delete_account">Delete account</string>
     <string name="logout">Logout</string>
     <string name="start_deleting_your_account_in_the_app">Start deleting your account in the app</string>
+    <string name="create_account">Create account</string>
 </resources>

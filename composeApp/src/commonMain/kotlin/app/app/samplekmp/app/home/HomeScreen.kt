@@ -12,7 +12,6 @@ import app.app.samplekmp.app.chat.chatGraph
 import app.app.samplekmp.app.home.ui.BottomNavigationBar
 import app.app.samplekmp.app.profile.profileGraph
 
-
 @Composable
 fun HomeScreen(
     rootController: NavHostController

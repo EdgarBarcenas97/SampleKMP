@@ -1,8 +1,6 @@
 package app.app.samplekmp.app.home.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
@@ -19,7 +17,7 @@ import app.app.samplekmp.app.home.BottomNavRoutes
 import app.app.samplekmp.app.home.BottomNavigation
 import app.app.samplekmp.core.extensions.one
 import app.app.samplekmp.resources.RhealPrimary
-import app.app.samplekmp.resources.composables.IconDrawable
+import app.app.samplekmp.resources.composables.IconWithBadge
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -69,31 +67,5 @@ fun BottomNavigationBar(
                 colors = NavigationBarItemDefaults.colors(selectedIconColor = RhealPrimary)
             )
         }
-    }
-}
-
-@Composable
-fun IconWithBadge(
-    isSelected: Boolean,
-    navigationItem: BottomNavigation,
-) = navigationItem.run {
-    BadgedBox(
-        badge = {
-            if (badgeCount != null) {
-                Badge {
-                    Text(text = badgeCount.toString())
-                }
-            } else if (hasNews) {
-                Badge()
-            }
-        }
-    ) {
-        IconDrawable(
-            drawableId = if (isSelected) {
-                selectedIcon
-            } else {
-                unselectedIcon
-            }
-        )
     }
 }
