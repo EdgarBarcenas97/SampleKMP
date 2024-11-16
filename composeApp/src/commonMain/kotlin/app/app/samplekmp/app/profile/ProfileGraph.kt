@@ -4,13 +4,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import app.app.samplekmp.app.home.BottomNavRoutes
+import app.app.samplekmp.app.main.BottomNavRoutes
 import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import app.app.samplekmp.app.profile.delete.DeleteAccountScreen
+import app.app.samplekmp.app.profile.delete.DeleteAccountScreenRoute
 import kotlinx.serialization.Serializable
-
-@Serializable
-data object DeleteAccountScreenRoute
 
 fun NavGraphBuilder.profileGraph(
     rootController: NavHostController

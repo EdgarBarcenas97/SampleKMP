@@ -1,10 +1,11 @@
-package app.app.samplekmp.app.home
+package app.app.samplekmp.app.main
 
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.chat
+import samplekmp.composeapp.generated.resources.home
 import samplekmp.composeapp.generated.resources.ic_chat
 import samplekmp.composeapp.generated.resources.ic_chat_fill
 import samplekmp.composeapp.generated.resources.ic_profile
@@ -12,15 +13,15 @@ import samplekmp.composeapp.generated.resources.ic_profile_fill
 import samplekmp.composeapp.generated.resources.profile
 
 @Serializable
-data object HomeGraph
+data object MainGraph
 
 sealed class BottomNavRoutes {
 
     @Serializable
-    data object ChatGraph : BottomNavRoutes()
+    data object HomeGraph : BottomNavRoutes()
 
     @Serializable
-    data object ChatScreenRoute : BottomNavRoutes()
+    data object HomeScreenRoute : BottomNavRoutes()
 
     @Serializable
     data object ProfileGraph : BottomNavRoutes()
@@ -37,6 +38,6 @@ enum class BottomNavigation(
     val route: BottomNavRoutes,
     val badgeCount: Int? = null,
 ) {
-    CHAT(Res.string.chat, Res.drawable.ic_chat_fill, Res.drawable.ic_chat, false, BottomNavRoutes.ChatScreenRoute),
+    CHAT(Res.string.home, Res.drawable.ic_chat_fill, Res.drawable.ic_chat, false, BottomNavRoutes.HomeScreenRoute),
     PROFILE(Res.string.profile, Res.drawable.ic_profile_fill, Res.drawable.ic_profile, false, BottomNavRoutes.ProfileScreenRoute)
 }

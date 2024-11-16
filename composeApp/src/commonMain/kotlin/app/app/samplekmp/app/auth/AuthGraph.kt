@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import app.app.samplekmp.app.auth.onboarding.OnboardingScreen
-import app.app.samplekmp.app.home.HomeGraph
+import app.app.samplekmp.app.main.MainGraph
 import app.app.samplekmp.app.auth.signIn.SignInScreen
 import app.app.samplekmp.app.auth.signup.SignUpScreen
 import kotlinx.serialization.Serializable
@@ -38,7 +38,7 @@ fun NavGraphBuilder.authGraph(
             SignInScreen(
                 onBackClick = { rootController.popBackStack() },
                 onLoginClick = { email, password ->
-                    rootController.navigate(HomeGraph) {
+                    rootController.navigate(MainGraph) {
                         popUpTo(rootController.graph.id) {
                             inclusive = true
                         }
@@ -54,7 +54,7 @@ fun NavGraphBuilder.authGraph(
             SignUpScreen(
                 onBackClick = { rootController.popBackStack() },
                 onRegisterClick = { email, password ->
-                    rootController.navigate(HomeGraph) {
+                    rootController.navigate(MainGraph) {
                         popUpTo(rootController.graph.id) {
                             inclusive = true
                         }

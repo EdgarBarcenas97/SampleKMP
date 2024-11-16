@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import app.app.samplekmp.app.auth.AuthGraph
 import app.app.samplekmp.app.auth.authGraph
-import app.app.samplekmp.app.home.homeGraph
+import app.app.samplekmp.app.main.mainGraph
 import app.app.samplekmp.resources.SampleTheme
 import coil3.ImageLoader
 import coil3.annotation.ExperimentalCoilApi
@@ -43,7 +43,7 @@ fun RootGraph() {
             startDestination = AuthGraph
         ) {
             authGraph(rootController)
-            homeGraph(rootController)
+            mainGraph(rootController)
         }
     }
 }

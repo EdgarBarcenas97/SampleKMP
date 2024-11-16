@@ -46,28 +46,28 @@ fun DeleteAccountScaffold(
         ) {
             Spacer(modifier = Modifier.height(Space8))
             Text(
-                text = "Deleting your account and all data",
+                text = givenDeleteData1(),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = Space16, vertical = Space8)
             )
             Text(
-                text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                text = givenDeleteData2(),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = Space16, vertical = Space8)
             )
             HorizontalDivider(modifier = Modifier.padding(vertical = Space8))
             Text(
-                text = "Deleting an account in the app",
+                text = givenDeleteData3(),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = Space16, vertical = Space8)
             )
             Text(
-                text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                text = givenDeleteData4(),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = Space16, vertical = Space8)
             )
             Text(
-                text = "You will receive confirmation of deleting your account in the application by e-mail",
+                text = givenDeleteData5(),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(horizontal = Space16, vertical = Space8)
             )

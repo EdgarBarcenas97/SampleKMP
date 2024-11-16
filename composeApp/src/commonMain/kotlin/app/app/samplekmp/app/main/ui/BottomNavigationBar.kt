@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.home.ui
+package app.app.samplekmp.app.main.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.NavigationBar
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import app.app.samplekmp.app.home.BottomNavRoutes
-import app.app.samplekmp.app.home.BottomNavigation
+import app.app.samplekmp.app.main.BottomNavRoutes
+import app.app.samplekmp.app.main.BottomNavigation
 import app.app.samplekmp.core.extensions.one
 import app.app.samplekmp.resources.RhealPrimary
 import app.app.samplekmp.resources.composables.icon.IconWithBadge
@@ -24,9 +24,8 @@ import org.jetbrains.compose.resources.stringResource
 fun BottomNavigationBar(
     navHostController: NavHostController
 ) {
-
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: BottomNavRoutes.ChatGraph::class.qualifiedName.orEmpty()
+    val currentRoute = navBackStackEntry?.destination?.route ?: BottomNavRoutes.HomeGraph::class.qualifiedName.orEmpty()
 
     val currentRouteTrimmed by remember(currentRoute) {
         derivedStateOf { currentRoute.substringBefore("?") }
