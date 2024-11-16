@@ -19,7 +19,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-@Preview
 fun App() {
     SampleTheme {
         setSingletonImageLoaderFactory { context ->

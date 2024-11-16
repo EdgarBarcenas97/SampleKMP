@@ -8,7 +8,9 @@ import app.app.samplekmp.app.auth.onboarding.OnboardingScreen
 import app.app.samplekmp.app.main.MainGraph
 import app.app.samplekmp.app.auth.signIn.SignInScreen
 import app.app.samplekmp.app.auth.signup.SignUpScreen
+import app.app.samplekmp.app.auth.signup.SignUpViewModel
 import kotlinx.serialization.Serializable
+import org.koin.compose.viewmodel.koinViewModel
 
 @Serializable
 data object AuthGraph
@@ -51,9 +53,11 @@ fun NavGraphBuilder.authGraph(
             )
         }
         composable<SignUpScreenRoute> {
+            val signUpViewModel: SignUpViewModel = koinViewModel()
             SignUpScreen(
                 onBackClick = { rootController.popBackStack() },
                 onRegisterClick = { email, password ->
+                    signUpViewModel.setInitialData()
                     rootController.navigate(MainGraph) {
                         popUpTo(rootController.graph.id) {
                             inclusive = true
