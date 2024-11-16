@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import app.app.samplekmp.app.chat.chatGraph
 import app.app.samplekmp.app.home.ui.BottomNavigationBar
 import app.app.samplekmp.app.profile.profileGraph
 
@@ -33,6 +34,7 @@ fun HomeScreen(
             startDestination = BottomNavRoutes.ChatGraph,
             modifier = Modifier.padding(innerPadding)
         ) {
+            chatGraph(rootController = rootController)
             profileGraph(rootController = navigationBarController)
         }
     }
