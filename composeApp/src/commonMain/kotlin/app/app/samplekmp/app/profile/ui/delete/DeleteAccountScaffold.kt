@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.profile.delete
+package app.app.samplekmp.app.profile.ui.delete
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

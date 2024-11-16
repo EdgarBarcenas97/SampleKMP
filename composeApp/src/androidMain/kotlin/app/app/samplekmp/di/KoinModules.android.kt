@@ -1,6 +1,7 @@
 package app.app.samplekmp.di
 
 import app.app.samplekmp.core.network.HTTP_TIMEOUT_MS
+import app.app.samplekmp.database.getDatabaseBuilder
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
 import java.util.concurrent.TimeUnit
@@ -16,4 +17,8 @@ internal actual val httpClientEngineModule = module {
             }
         }
     }
+}
+
+actual val nativeModule = module {
+    single { getDatabaseBuilder(get()) }
 }

@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.profile
+package app.app.samplekmp.app.profile.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

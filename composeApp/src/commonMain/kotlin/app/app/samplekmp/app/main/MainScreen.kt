@@ -10,7 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import app.app.samplekmp.app.home.homeGraph
 import app.app.samplekmp.app.main.ui.BottomNavigationBar
-import app.app.samplekmp.app.profile.profileGraph
+import app.app.samplekmp.app.profile.ui.profileGraph
 
 @Composable
 fun MainScreen(

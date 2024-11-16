@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.profile
+package app.app.samplekmp.app.profile.ui
 
 import androidx.compose.runtime.Composable
 import app.app.samplekmp.resources.composables.form.personalData.PersonalData
