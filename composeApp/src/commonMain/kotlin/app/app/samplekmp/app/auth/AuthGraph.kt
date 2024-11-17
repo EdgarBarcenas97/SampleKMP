@@ -70,3 +70,4 @@ fun NavGraphBuilder.authGraph(
         }
     }
 }
+
