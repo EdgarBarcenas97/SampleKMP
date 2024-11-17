@@ -43,7 +43,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.koin.android)
-            implementation(libs.play.services.location)
             implementation(libs.core.splashscreen)
         }
         commonMain.dependencies {
@@ -69,10 +68,6 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.settings)
-            implementation(libs.moko.permissions.compose)
-            implementation(libs.peekaboo.ui)
-            implementation(libs.peekaboo.image.picker)
-            implementation(libs.kotlinx.datetime)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
