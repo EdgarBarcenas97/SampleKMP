@@ -11,6 +11,7 @@ import app.app.samplekmp.app.auth.signup.SignUpScreen
 import app.app.samplekmp.app.auth.signup.SignUpViewModel
 import kotlinx.serialization.Serializable
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
 @Serializable
 data object AuthGraph
@@ -24,6 +25,7 @@ data object SignInScreenRoute
 @Serializable
 data object SignUpScreenRoute
 
+@OptIn(KoinExperimentalAPI::class)
 fun NavGraphBuilder.authGraph(
     rootController: NavHostController
 ) {
