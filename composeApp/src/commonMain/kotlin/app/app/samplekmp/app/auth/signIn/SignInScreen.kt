@@ -7,7 +7,7 @@ fun SignInScreen(
     onBackClick: () -> Unit,
     onLoginClick: (email: String, password: String) -> Unit,
     onRegisterClick: () -> Unit,
-    onForgotPasswordClick: () -> Unit
+    onForgotPasswordClick: () -> Unit,
 ) {
     SignInScaffold(
         onBackClick = onBackClick,

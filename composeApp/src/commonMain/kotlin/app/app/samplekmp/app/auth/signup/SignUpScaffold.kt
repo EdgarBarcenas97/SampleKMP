@@ -12,6 +12,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import app.app.samplekmp.app.auth.data.LOGIN_KEY
+import app.app.samplekmp.app.auth.data.PASSWORD_KEY
 import app.app.samplekmp.resources.Space16
 import app.app.samplekmp.resources.Weight1
 import app.app.samplekmp.resources.composables.button.GradientButton
@@ -19,6 +21,7 @@ import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import app.app.samplekmp.resources.composables.form.registration.RegistrationForm
 import app.app.samplekmp.resources.composables.form.registration.rememberRegistrationFormState
 import app.app.samplekmp.resources.composables.topbar.TopBar
+import com.russhwolf.settings.set
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.register
 

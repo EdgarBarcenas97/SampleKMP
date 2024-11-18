@@ -12,8 +12,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import app.app.samplekmp.app.auth.data.LOGIN_KEY
+import app.app.samplekmp.app.auth.data.PASSWORD_KEY
 import app.app.samplekmp.resources.RhealPrimary
 import app.app.samplekmp.resources.Space16
 import app.app.samplekmp.resources.Space48
@@ -57,6 +60,12 @@ fun SignInScaffold(
                     end = Space16)
         ) {
             val formState = rememberLoginFormState()
+
+            LaunchedEffect(Unit) {
+                formState.email.value = "speedymovil"
+                formState.password.value = "speedymovil2024"
+            }
+
             Text(
                 text = stringResource(Res.string.login),
                 style = MaterialTheme.typography.displayMedium
@@ -81,6 +90,7 @@ fun SignInScaffold(
             Spacer(modifier = Modifier.height(Space16))
             GradientButton(
                 title = Res.string.register,
+                enabledButton = formState.isValid,
                 onButtonPressed = onRegisterClick,
             )
         }

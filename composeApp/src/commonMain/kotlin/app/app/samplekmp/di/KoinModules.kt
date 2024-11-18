@@ -2,6 +2,7 @@ package app.app.samplekmp.di
 
 import androidx.room.RoomDatabase
 import app.app.samplekmp.app.auth.onboarding.OnboardingViewModel
+import app.app.samplekmp.app.auth.signIn.SignInViewModel
 import app.app.samplekmp.app.auth.signup.SignUpViewModel
 import app.app.samplekmp.app.home.data.datasource.local.DiscoverTracksLocalDataSource
 import app.app.samplekmp.app.home.data.datasource.local.TracksDao
@@ -57,6 +58,7 @@ val viewModelModule = module {
     viewModelOf(::HomeViewModel)
     viewModelOf(::OnboardingViewModel)
     viewModelOf(::ProfileViewModel)
+    viewModelOf(::SignInViewModel)
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) {

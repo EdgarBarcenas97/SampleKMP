@@ -1,5 +1,6 @@
 package app.app.samplekmp.app.auth
 
+import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -9,6 +10,7 @@ import app.app.samplekmp.app.auth.onboarding.OnboardingScreen
 import app.app.samplekmp.app.auth.onboarding.OnboardingViewModel
 import app.app.samplekmp.app.main.MainGraph
 import app.app.samplekmp.app.auth.signIn.SignInScreen
+import app.app.samplekmp.app.auth.signIn.SignInViewModel
 import app.app.samplekmp.app.auth.signup.SignUpScreen
 import app.app.samplekmp.app.auth.signup.SignUpViewModel
 import kotlinx.serialization.Serializable
@@ -52,14 +54,22 @@ fun NavGraphBuilder.authGraph(
 
         }
         composable<SignInScreenRoute> {
-            SignInScreen(
-                onBackClick = { rootController.popBackStack() },
-                onLoginClick = { email, password ->
+            val signInViewModel: SignInViewModel = koinViewModel()
+            val isNavigate = signInViewModel.isNavigate
+
+            if (isNavigate) {
+                LaunchedEffect(Unit) {
                     rootController.navigate(MainGraph) {
                         popUpTo(rootController.graph.id) {
                             inclusive = true
                         }
                     }
+                }
+            }
+            SignInScreen(
+                onBackClick = { rootController.popBackStack() },
+                onLoginClick = { email, password ->
+                    signInViewModel.login(email, password)
                 },
                 onRegisterClick = {
                     rootController.navigate(SignUpScreenRoute)

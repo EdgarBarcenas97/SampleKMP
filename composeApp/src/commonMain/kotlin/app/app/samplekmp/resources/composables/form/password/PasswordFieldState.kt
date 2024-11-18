@@ -15,7 +15,7 @@ import app.app.samplekmp.core.extensions.empty
 class PasswordFieldState(initialValue: String) {
 
     var value: String by mutableStateOf(initialValue)
-        private set
+
 
     var error: String? by mutableStateOf(null)
         private set

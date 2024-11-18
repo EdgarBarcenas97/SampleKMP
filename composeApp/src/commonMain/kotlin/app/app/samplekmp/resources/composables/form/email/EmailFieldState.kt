@@ -13,7 +13,7 @@ import androidx.compose.runtime.setValue
 class EmailFieldState(initialValue: String) {
 
     var value: String by mutableStateOf(initialValue)
-        private set
+
 
     var error: String? by mutableStateOf(null)
         private set
