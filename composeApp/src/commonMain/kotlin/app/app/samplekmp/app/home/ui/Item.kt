@@ -1,5 +1,6 @@
 package app.app.samplekmp.app.home.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,10 +22,14 @@ import app.app.samplekmp.resources.Space8
 import coil3.compose.AsyncImage
 
 @Composable
-fun ChatItem(track: TrackApiResponse) = track.run {
+fun TrackItem(
+    track: TrackApiResponse,
+    onClickItem: (Int) -> Unit
+) = track.run {
     Row(
         horizontalArrangement = Arrangement.spacedBy(Space8),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable {  onClickItem.invoke(albumId)}
     ) {
         Box(
             modifier = Modifier.size(Space40)

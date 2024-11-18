@@ -33,7 +33,7 @@ fun MainScreen(
             startDestination = BottomNavRoutes.HomeGraph,
             modifier = Modifier.padding(innerPadding)
         ) {
-            homeGraph(rootController = rootController)
+            homeGraph(rootController = navigationBarController)
             profileGraph(rootController = navigationBarController)
         }
     }
