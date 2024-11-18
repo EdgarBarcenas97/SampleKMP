@@ -9,8 +9,10 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import app.app.samplekmp.app.profile.ui.ProfileUiModelState
 import app.app.samplekmp.core.extensions.orDefault
 import app.app.samplekmp.resources.Space16
 import org.koin.compose.viewmodel.koinViewModel
@@ -22,7 +24,9 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = koinViewModel()
 ) {
     val tracksModelsStateUi = homeViewModel.tracksModelsStateUi.collectAsStateWithLifecycle()
+    val profileUiModelState by homeViewModel.profileUiModelState.collectAsStateWithLifecycle()
     HomeScaffold(
+        profileUiModelState,
         tracksModelsStateUi = tracksModelsStateUi.value,
         modifier = Modifier
     )
@@ -30,16 +34,19 @@ fun HomeScreen(
 
 @Composable
 fun HomeScaffold(
+    profileUiModelState: ProfileUiModelState,
     tracksModelsStateUi: TracksModelsStateUi,
     modifier: Modifier = Modifier
 ) = tracksModelsStateUi.run {
     Scaffold(
         topBar = {
-            HeaderHome(
-                name = "Daniel",
-                image = "https://images.unsplash.com/photo-1535468850893-d6e543fbd7f5",
-                message = "Bienvenido"
-            )
+            profileUiModelState.user?.run {
+                HeaderHome(
+                    name = "$firstName $lastName",
+                    image = "https://images.unsplash.com/photo-1535468850893-d6e543fbd7f5",
+                    message = "Bienvenido a tu cuenta $email"
+                )
+            }
         },
         modifier = modifier
     ) { padding ->

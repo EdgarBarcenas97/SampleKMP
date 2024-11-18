@@ -11,6 +11,7 @@ import app.app.samplekmp.app.profile.data.UserRepository
 import app.app.samplekmp.app.profile.domain.GetUserFlowUseCase
 import app.app.samplekmp.app.profile.domain.GetUserUseCase
 import app.app.samplekmp.app.profile.domain.InsertUserUseCase
+import app.app.samplekmp.app.profile.ui.ProfileViewModel
 import app.app.samplekmp.core.network.httpClient
 import io.ktor.client.HttpClient
 import org.koin.compose.viewmodel.dsl.viewModelOf
@@ -48,6 +49,7 @@ val viewModelModule = module {
     viewModelOf(::SignUpViewModel)
     viewModelOf(::HomeViewModel)
     viewModelOf(::OnboardingViewModel)
+    viewModelOf(::ProfileViewModel)
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) {

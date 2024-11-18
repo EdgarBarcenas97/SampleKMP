@@ -22,10 +22,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import app.app.samplekmp.app.profile.domain.User
 import app.app.samplekmp.resources.Space16
 import app.app.samplekmp.resources.Space64
 import app.app.samplekmp.resources.Space8
-import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import app.app.samplekmp.resources.composables.topbar.TopBar
 import org.jetbrains.compose.resources.stringResource
 import samplekmp.composeapp.generated.resources.Res
@@ -35,12 +35,12 @@ import samplekmp.composeapp.generated.resources.profile
 
 @Composable
 fun ProfileScaffold(
-    personalData: PersonalData,
+    profileUiModelState: ProfileUiModelState,
     onBackClick: () -> Unit,
     onPersonalDataClick: () -> Unit,
     onDeleteAccountClick: () -> Unit,
     onLogoutClick: () -> Unit
-) {
+) = profileUiModelState.run {
     Scaffold(
         topBar = {
             TopBar(
@@ -50,22 +50,24 @@ fun ProfileScaffold(
             )
         }
     ) { padding ->
-        Column(
-            modifier = Modifier
-                .padding(padding)
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-        ) {
-            PersonalDataSection(personalData = personalData, onClick = onPersonalDataClick)
-            HorizontalDivider()
-            DeleteAccountItem(onClick = onDeleteAccountClick)
-            LogoutItem(onClick = onLogoutClick)
+        if (user != null) {
+            Column(
+                modifier = Modifier
+                    .padding(padding)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+            ) {
+                PersonalDataSection(user = user, onClick = onPersonalDataClick)
+                HorizontalDivider()
+                DeleteAccountItem(onClick = onDeleteAccountClick)
+                LogoutItem(onClick = onLogoutClick)
+            }
         }
     }
 }
 
 @Composable
-private fun PersonalDataSection(personalData: PersonalData, onClick: () -> Unit) {
+private fun PersonalDataSection(user: User, onClick: () -> Unit) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Bottom,
@@ -81,14 +83,14 @@ private fun PersonalDataSection(personalData: PersonalData, onClick: () -> Unit)
                 modifier = Modifier.size(Space64)
             )
             Text(
-                text = "${personalData.firstName} ${personalData.lastName}",
+                text = "${user.firstName} ${user.lastName}",
                 style = MaterialTheme.typography.titleLarge
             )
             Text(
-                text = personalData.email,
+                text = user.email,
                 style = MaterialTheme.typography.bodyMedium)
             Text(
-                text = personalData.phoneNumber,
+                text = user.phoneNumber,
                 style = MaterialTheme.typography.bodyMedium
             )
         }

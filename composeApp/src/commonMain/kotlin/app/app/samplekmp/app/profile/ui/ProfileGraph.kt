@@ -17,12 +17,6 @@ fun NavGraphBuilder.profileGraph(
     ) {
         composable<BottomNavRoutes.ProfileScreenRoute> {
             ProfileScreen(
-                personalData = PersonalData(
-                    firstName = "John",
-                    lastName = "Doe",
-                    email = "john.doe@gmail.com",
-                    phoneNumber = "+48 123 456 789",
-                ),
                 onBackClick = {
                     rootController.popBackStack()
                 },
