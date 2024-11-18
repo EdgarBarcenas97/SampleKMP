@@ -24,7 +24,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 @Composable
 fun HomeScreen(
     homeViewModel: HomeViewModel = koinViewModel(),
-    onClickItem: (Int) -> Unit,
+    onClickItem: (String, String, String, String, Int) -> Unit
 ) {
     val tracksModelsStateUi = homeViewModel.tracksModelsStateUi.collectAsStateWithLifecycle()
     val profileUiModelState by homeViewModel.profileUiModelState.collectAsStateWithLifecycle()
@@ -40,7 +40,7 @@ fun HomeScreen(
 fun HomeScaffold(
     profileUiModelState: ProfileUiModelState,
     tracksModelsStateUi: TracksModelsStateUi,
-    onClickItem: (Int) -> Unit,
+    onClickItem: (String, String, String, String, Int) -> Unit,
     modifier: Modifier = Modifier
 ) = tracksModelsStateUi.run {
     Scaffold(

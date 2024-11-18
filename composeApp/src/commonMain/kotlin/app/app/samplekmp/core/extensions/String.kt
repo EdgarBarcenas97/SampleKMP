@@ -24,3 +24,11 @@ const val PASSWORD_PATTERN = "^" +
     "(?=\\S+$)" +
     ".{8,}" +
     "$"
+
+fun convertToHttps(url: String): String {
+    return if (url.startsWith("http://")) {
+        url.replaceFirst("http://", "https://")
+    } else {
+        url
+    }
+}

@@ -17,8 +17,16 @@ fun NavGraphBuilder.homeGraph(
     ) {
         composable<BottomNavRoutes.HomeScreenRoute> {
             HomeScreen(
-                onClickItem = {
-                    rootController.navigate(DetailScreenRoute(it))
+                onClickItem = { name, posterUrl, albumName, artistName, numTracks ->
+                    rootController.navigate(
+                        DetailScreenRoute(
+                            name = name,
+                            posterUrl = posterUrl,
+                            albumName = albumName,
+                            artistName = artistName,
+                            numTracks = numTracks
+                        )
+                    )
                 }
             )
         }
@@ -26,7 +34,11 @@ fun NavGraphBuilder.homeGraph(
         composable<DetailScreenRoute> { backStackEntry ->
             val detailScreenRoute: DetailScreenRoute = backStackEntry.toRoute()
             DetailScreen(
-                id = detailScreenRoute.id,
+                name = detailScreenRoute.name,
+                posterUrl = detailScreenRoute.posterUrl,
+                albumName = detailScreenRoute.albumName,
+                artistName = detailScreenRoute.artistName,
+                numTracks = detailScreenRoute.numTracks,
                 onCloseClick = {
                     rootController.popBackStack()
                 }

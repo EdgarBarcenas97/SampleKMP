@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import app.app.samplekmp.app.home.data.TrackApiResponse
+import app.app.samplekmp.core.extensions.convertToHttps
 import app.app.samplekmp.core.extensions.one
 import app.app.samplekmp.resources.Space40
 import app.app.samplekmp.resources.Space8
@@ -24,18 +25,18 @@ import coil3.compose.AsyncImage
 @Composable
 fun TrackItem(
     track: TrackApiResponse,
-    onClickItem: (Int) -> Unit
+    onClickItem: (String, String, String, String, Int) -> Unit
 ) = track.run {
     Row(
         horizontalArrangement = Arrangement.spacedBy(Space8),
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.clickable {  onClickItem.invoke(albumId)}
+        modifier = Modifier.clickable {  onClickItem.invoke(name, posterUrl, albumName, artistName.joinToString(), numTracks)}
     ) {
         Box(
             modifier = Modifier.size(Space40)
         ) {
             AsyncImage(
-                model = posterUrl,
+                model = convertToHttps(posterUrl),
                 modifier = Modifier.matchParentSize().clip(CircleShape),
                 contentScale = ContentScale.Crop,
                 contentDescription = null

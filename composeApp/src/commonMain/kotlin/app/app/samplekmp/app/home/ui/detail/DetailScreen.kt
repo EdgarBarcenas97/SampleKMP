@@ -4,15 +4,27 @@ import androidx.compose.runtime.Composable
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DetailScreenRoute(val id: Int)
+data class DetailScreenRoute(val name: String,
+                             val posterUrl: String,
+                             val albumName: String,
+                             val artistName: String,
+                             val numTracks: Int)
 
 @Composable
 fun DetailScreen(
-    id: Int,
+    name: String,
+    posterUrl: String,
+    albumName: String,
+    artistName: String,
+    numTracks: Int,
     onCloseClick: () -> Unit,
 ) {
     DetailScaffold(
-        id = id,
-        onCloseClick = onCloseClick,
+        name = name,
+        posterUrl = posterUrl,
+        albumName = albumName,
+        artistName = artistName,
+        numTracks = numTracks,
+        onCloseClick = onCloseClick
     )
 }

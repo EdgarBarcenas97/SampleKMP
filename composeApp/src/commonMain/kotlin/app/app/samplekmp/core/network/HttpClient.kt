@@ -8,6 +8,7 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.ServerResponseException
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
@@ -34,7 +35,11 @@ internal fun httpClient(httpClientEngine: HttpClientEngine) = HttpClient(httpCli
         })
     }
     defaultRequest {
-        url("http://apk.ctn.smapps.mx:9582" )
+        url {
+            protocol = URLProtocol.HTTP
+            host = "apk.ctn.smapps.mx"
+            port = 9582
+        }
     }
 }
 
