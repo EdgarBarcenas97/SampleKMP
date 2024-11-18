@@ -4,9 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.app.samplekmp.app.auth.data.INIT_SESSION_KEY
 import app.app.samplekmp.app.profile.domain.InsertUserUseCase
+import app.app.samplekmp.resources.composables.form.personalData.PersonalData
 import com.russhwolf.settings.Settings
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -17,13 +16,10 @@ class SignUpViewModel : ViewModel(), KoinComponent {
 
     private val settings: Settings = Settings()
 
-    private val _createProfileUiState = MutableStateFlow(SignUpProfileUiState())
-    val createProfileUiState: StateFlow<SignUpProfileUiState> = _createProfileUiState
-
-    fun setInitialData() {
+    fun signup(personalData: PersonalData, password: String) {
         viewModelScope.launch {
             settings.putBoolean(INIT_SESSION_KEY, true)
-            insertUserUseCase()
+            insertUserUseCase.invoke(personalData, password)
         }
     }
 }

@@ -1,6 +1,7 @@
 package app.app.samplekmp.di
 
 import androidx.room.RoomDatabase
+import app.app.samplekmp.app.auth.onboarding.OnboardingViewModel
 import app.app.samplekmp.app.auth.signup.SignUpViewModel
 import app.app.samplekmp.app.home.di.tracksModule
 import app.app.samplekmp.app.home.ui.HomeViewModel
@@ -46,6 +47,7 @@ internal expect val httpClientEngineModule: Module
 val viewModelModule = module {
     viewModelOf(::SignUpViewModel)
     viewModelOf(::HomeViewModel)
+    viewModelOf(::OnboardingViewModel)
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) {

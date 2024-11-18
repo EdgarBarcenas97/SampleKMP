@@ -1,12 +1,10 @@
 package app.app.samplekmp.resources.composables.form.email
 
-import app.app.samplekmp.core.extensions.EMAIL_PATTERN
-
 
 fun validateEmail(email: String): EmailValidationResult {
     return when {
         email.isEmpty() -> EmailValidationResult.EMPTY
-        !email.matches(Regex(EMAIL_PATTERN)) -> EmailValidationResult.INVALID_FORMAT
+        //!email.matches(Regex(EMAIL_PATTERN)) -> EmailValidationResult.INVALID_FORMAT
         else -> EmailValidationResult.VALID
     }
 

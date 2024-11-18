@@ -49,14 +49,14 @@ fun SignUpScaffold(
             val formState = rememberRegistrationFormState()
             LaunchedEffect(Unit) {
                 formState.personalData.run {
-                    firstName.value = "John"
-                    lastName.value = "Doe"
-                    email.onValueChanged("john.doe@gmail.com")
-                    phoneNumber.value = "123456789"
+                    firstName.value = "Daniel"
+                    lastName.value = "Barcenas"
+                    email.onValueChanged("speedymovil")
+                    phoneNumber.value = "2281032147"
                 }
                 formState.passwords.run {
-                    firstPassword.onValueChanged("StrongPassword123")
-                    secondPassword.onValueChanged("StrongPassword123")
+                    firstPassword.onValueChanged("speedymovil2024")
+                    secondPassword.onValueChanged("speedymovil2024")
                 }
             }
             RegistrationForm(

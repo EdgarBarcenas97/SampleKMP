@@ -1,10 +1,12 @@
 package app.app.samplekmp.app.auth
 
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import app.app.samplekmp.app.auth.onboarding.OnboardingScreen
+import app.app.samplekmp.app.auth.onboarding.OnboardingViewModel
 import app.app.samplekmp.app.main.MainGraph
 import app.app.samplekmp.app.auth.signIn.SignInScreen
 import app.app.samplekmp.app.auth.signup.SignUpScreen
@@ -33,10 +35,21 @@ fun NavGraphBuilder.authGraph(
         startDestination = OnboardingScreenRoute
     ) {
         composable<OnboardingScreenRoute> {
-            OnboardingScreen(
-                onSignInClick = { rootController.navigate(SignInScreenRoute) },
-                onSignUpClick = { rootController.navigate(SignUpScreenRoute) }
-            )
+            val onboardingViewModel: OnboardingViewModel = koinViewModel()
+            val isInitSessionUiState = onboardingViewModel.isInitSessionUiState.collectAsStateWithLifecycle()
+            if (isInitSessionUiState.value) {
+                rootController.navigate(MainGraph) {
+                    popUpTo(rootController.graph.id) {
+                        inclusive = true
+                    }
+                }
+            } else {
+                OnboardingScreen(
+                    onSignInClick = { rootController.navigate(SignInScreenRoute) },
+                    onSignUpClick = { rootController.navigate(SignUpScreenRoute) }
+                )
+            }
+
         }
         composable<SignInScreenRoute> {
             SignInScreen(
@@ -58,8 +71,8 @@ fun NavGraphBuilder.authGraph(
             val signUpViewModel: SignUpViewModel = koinViewModel()
             SignUpScreen(
                 onBackClick = { rootController.popBackStack() },
-                onRegisterClick = { email, password ->
-                    signUpViewModel.setInitialData()
+                onRegisterClick = { data, password ->
+                    signUpViewModel.signup(data, password)
                     rootController.navigate(MainGraph) {
                         popUpTo(rootController.graph.id) {
                             inclusive = true
@@ -70,4 +83,3 @@ fun NavGraphBuilder.authGraph(
         }
     }
 }
-

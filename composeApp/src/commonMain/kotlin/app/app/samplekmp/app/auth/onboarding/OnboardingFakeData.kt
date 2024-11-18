@@ -2,16 +2,16 @@ package app.app.samplekmp.app.auth.onboarding
 
 fun givenPages() = listOf(
     mapOf(
-        "title" to "Welcome to Wheels",
-        "subtitle" to "Let's find you a bike",
-        "image" to "https://images.unsplash.com/photo-1475666675596-cca2035b3d79",
+        "title" to "Welcome to Melody",
+        "subtitle" to "Let's find your rhythm",
+        "image" to "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
     ),
     mapOf(
-        "title" to "Find a bike in any town",
-        "subtitle" to "With over 5,000 spots world wide, we always got you covered",
-        "image" to "https://images.unsplash.com/photo-1605028241606-ca01277aa15c",
+        "title" to "Discover music anywhere",
+        "subtitle" to "With over 5 million tracks, your next favorite song is just a click away",
+        "image" to "https://images.unsplash.com/photo-1515041219749-89346fcfbf71",
     ),
     mapOf(
-        "title" to "Safety above all",
-        "subtitle" to "Travel with peace of mind, thanks to our safety features",
-        "image" to "https://images.unsplash.com/photo-1517305349393-aad1f0ee4328"))
+        "title" to "Your music, your way",
+        "subtitle" to "Create playlists, share tracks, and enjoy uninterrupted listening",
+        "image" to "https://images.unsplash.com/photo-1487537023671-8dce1a785863"))
