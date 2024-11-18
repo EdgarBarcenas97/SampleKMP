@@ -1,6 +1,6 @@
 package app.app.samplekmp.app.home.domain
 
-import app.app.samplekmp.app.home.data.DiscoverTracksApiResponse
+import app.app.samplekmp.app.home.data.datasource.remote.DiscoverTracksApiResponse
 import app.app.samplekmp.app.home.data.IDiscoverTracksRepository
 import app.app.samplekmp.core.result.Result
 

@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.home.data
+package app.app.samplekmp.app.home.data.datasource.remote
 
 import app.app.samplekmp.core.network.handleRestException
 import io.ktor.client.HttpClient

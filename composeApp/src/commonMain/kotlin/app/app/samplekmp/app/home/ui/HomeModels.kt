@@ -1,7 +1,7 @@
 package app.app.samplekmp.app.home.ui
 
-import app.app.samplekmp.app.home.data.BannerApiResponse
-import app.app.samplekmp.app.home.data.TrackApiResponse
+import app.app.samplekmp.app.home.data.datasource.remote.BannerApiResponse
+import app.app.samplekmp.app.home.data.datasource.remote.TrackApiResponse
 
 data class TracksUi(val banners: List<BannerApiResponse>,
                     val tracks: List<TrackApiResponse>)

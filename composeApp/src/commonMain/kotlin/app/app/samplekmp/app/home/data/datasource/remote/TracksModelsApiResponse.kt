@@ -1,5 +1,6 @@
-package app.app.samplekmp.app.home.data
+package app.app.samplekmp.app.home.data.datasource.remote
 
+import app.app.samplekmp.app.home.data.datasource.local.TrackEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -47,3 +48,16 @@ data class BannerApiResponse(
     val image: String,
     @SerialName("urlRedirect")
     val urlRedirect: String)
+
+fun List<TrackApiResponse>.toTrackListEntity() = map { it.toTrackEntity() }
+
+fun TrackApiResponse.toTrackEntity() = TrackEntity(
+    albumId = albumId,
+    albumName = albumName,
+    artistName = artistName.first(),
+    featuredPosterUrl = featuredPosterUrl,
+    name = name,
+    numTracks = numTracks,
+    phonogramId = phonogramId,
+    posterUrl = posterUrl,
+    urlredirec = urlredirec)

@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
-import app.app.samplekmp.app.home.data.TrackApiResponse
+import app.app.samplekmp.app.home.data.datasource.remote.TrackApiResponse
 import app.app.samplekmp.core.extensions.convertToHttps
 import app.app.samplekmp.core.extensions.one
 import app.app.samplekmp.resources.Space40
