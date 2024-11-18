@@ -34,7 +34,7 @@ internal fun httpClient(httpClientEngine: HttpClientEngine) = HttpClient(httpCli
         })
     }
     defaultRequest {
-        url("https://temis.app" )
+        url("http://apk.ctn.smapps.mx:9582" )
     }
 }
 

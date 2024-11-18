@@ -8,7 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import app.app.samplekmp.app.home.homeGraph
+import app.app.samplekmp.app.home.ui.homeGraph
 import app.app.samplekmp.app.main.ui.BottomNavigationBar
 import app.app.samplekmp.app.profile.ui.profileGraph
 

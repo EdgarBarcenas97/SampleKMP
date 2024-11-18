@@ -19,7 +19,7 @@ internal actual val httpClientEngineModule = module {
                 writeTimeout(HTTP_TIMEOUT_MS, TimeUnit.MILLISECONDS)
                 readTimeout(HTTP_TIMEOUT_MS, TimeUnit.MILLISECONDS)
             }
-            addInterceptor(get())
+            //addInterceptor(get())
         }
     }
 }

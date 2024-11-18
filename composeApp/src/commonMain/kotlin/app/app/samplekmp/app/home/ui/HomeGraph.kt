@@ -1,11 +1,11 @@
-package app.app.samplekmp.app.home
+package app.app.samplekmp.app.home.ui
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import app.app.samplekmp.app.home.detail.DetailScreen
-import app.app.samplekmp.app.home.detail.DetailScreenRoute
+import app.app.samplekmp.app.home.ui.detail.DetailScreen
+import app.app.samplekmp.app.home.ui.detail.DetailScreenRoute
 import app.app.samplekmp.app.main.BottomNavRoutes
 
 fun NavGraphBuilder.homeGraph(

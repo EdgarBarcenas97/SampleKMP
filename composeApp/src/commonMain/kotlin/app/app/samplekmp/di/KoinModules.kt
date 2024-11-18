@@ -2,6 +2,8 @@ package app.app.samplekmp.di
 
 import androidx.room.RoomDatabase
 import app.app.samplekmp.app.auth.signup.SignUpViewModel
+import app.app.samplekmp.app.home.di.tracksModule
+import app.app.samplekmp.app.home.ui.HomeViewModel
 import app.app.samplekmp.app.profile.data.UserDao
 import app.app.samplekmp.app.profile.data.UserDatabase
 import app.app.samplekmp.app.profile.data.UserRepository
@@ -43,11 +45,12 @@ internal expect val httpClientEngineModule: Module
 
 val viewModelModule = module {
     viewModelOf(::SignUpViewModel)
+    viewModelOf(::HomeViewModel)
 }
 
 fun initKoin(config: KoinAppDeclaration? = null) {
     startKoin {
         config?.invoke(this)
-        modules(appModule, dataModule, nativeModule, viewModelModule, networkModule)
+        modules(appModule, dataModule, tracksModule, nativeModule, viewModelModule, networkModule)
     }
 }

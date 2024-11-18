@@ -1,4 +1,4 @@
-package app.app.samplekmp.app.home.detail
+package app.app.samplekmp.app.home.ui.detail
 
 import androidx.compose.runtime.Composable
 
