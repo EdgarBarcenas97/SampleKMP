@@ -1,5 +1,6 @@
 package app.app.samplekmp.app.home.ui
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.app.samplekmp.app.profile.ui.ProfileUiModelState
 import app.app.samplekmp.core.extensions.orDefault
 import app.app.samplekmp.resources.Space16
+import app.app.samplekmp.resources.Space24
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
@@ -60,7 +62,8 @@ fun HomeScaffold(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(top = padding.calculateTopPadding()),
-                contentPadding = PaddingValues(Space16)
+                contentPadding = PaddingValues(Space16),
+                verticalArrangement = Arrangement.spacedBy(Space24)
             ) {
                 items(it.tracks) { item ->
                     ChatItem(item)

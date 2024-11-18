@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -22,11 +22,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import app.app.samplekmp.app.profile.domain.User
 import app.app.samplekmp.resources.Space16
-import app.app.samplekmp.resources.Space64
+import app.app.samplekmp.resources.Space40
 import app.app.samplekmp.resources.Space8
 import app.app.samplekmp.resources.composables.topbar.TopBar
+import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.stringResource
 import samplekmp.composeapp.generated.resources.Res
 import samplekmp.composeapp.generated.resources.delete_account
@@ -77,10 +80,11 @@ private fun PersonalDataSection(user: User, onClick: () -> Unit) {
             .padding(Space16),
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(Space8)) {
-            Icon(
-                imageVector = Icons.Default.AccountCircle,
-                contentDescription = null,
-                modifier = Modifier.size(Space64)
+            AsyncImage(
+                model = "https://images.unsplash.com/photo-1535468850893-d6e543fbd7f5",
+                modifier = Modifier.clip(CircleShape).size(Space40).align(Alignment.CenterHorizontally),
+                contentScale = ContentScale.Crop,
+                contentDescription = null
             )
             Text(
                 text = "${user.firstName} ${user.lastName}",
